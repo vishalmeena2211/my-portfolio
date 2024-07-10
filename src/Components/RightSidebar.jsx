@@ -7,47 +7,47 @@ import { MdWork, MdEmail } from "react-icons/md";
 import { IoIosMenu } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
 import { NavLink } from 'react-router-dom';
-import {useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import './Overlay.css';
 
 
 
-const MobileMenu = ({ isOpen, onClose,isActive }) => {
+const MobileMenu = ({ isOpen, onClose, isActive }) => {
   return (
     <CSSTransition in={isOpen} timeout={300} classNames={`overlay-left`} unmountOnExit>
-    <div
-      className={`${isOpen ? 'w-screen' : 'w-0 -z-10'
-        } md:hidden h-screen fixed z-40 transition-all ease-in duration-300 backdrop-blur-xl bg-gray-800 flex flex-col items-start justify-start py-20 gap-10 text-white`}
-    >
+      <div
+        className={`${isOpen ? 'w-screen' : 'w-0 -z-10'
+          } md:hidden h-screen fixed z-40 transition-all ease-in duration-300 backdrop-blur-xl bg-gray-800 flex flex-col items-start justify-start py-20 gap-10 text-white`}
+      >
 
-      <div className='flex flex-col justify-between text-lg font-semibold pl-6 text-start gap-3'>
-          <NavLink to='/' onClick={onClose}  className={`flex gap-4 hover:text-yellow-500 ${isActive('/') && 'text-yellow-500'} items-center my-1`}>
+        <div className='flex flex-col justify-between text-lg font-semibold pl-6 text-start gap-3'>
+          <NavLink to='/' onClick={onClose} className={`flex gap-4 hover:text-yellow-500 ${isActive('/') && 'text-yellow-500'} items-center my-1`}>
             <FaHome />
             <span>HOME</span>
           </NavLink>
-        <hr className='w-screen opacity-10' />
+          <hr className='w-screen opacity-10' />
           <NavLink to='/about-me' onClick={onClose} className={`flex gap-4 hover:text-yellow-500 ${isActive('/about-me') && 'text-yellow-500'} items-center my-1`}>
             <MdEmail />
             <span>ABOUT ME</span>
           </NavLink>
-        <hr className='w-screen opacity-10' />
+          <hr className='w-screen opacity-10' />
           <NavLink to='/my-work' onClick={onClose} className={`flex gap-4 hover:text-yellow-500 ${isActive('/my-work') && 'text-yellow-500'} items-center my-1`}>
             <MdWork />
             <span>WORKS</span>
           </NavLink>
-        <hr className='w-screen opacity-10' />
+          <hr className='w-screen opacity-10' />
           <NavLink to='/contact' onClick={onClose} className={`flex gap-4 hover:text-yellow-500 ${isActive('/contact') && 'text-yellow-500'} items-center my-1`}>
             <IoPerson />
             <span>CONTACT</span>
           </NavLink>
-        <hr className='w-screen opacity-10' />
+          <hr className='w-screen opacity-10' />
           <NavLink to='/blogs' onClick={onClose} className={`flex gap-4 hover:text-yellow-500 ${isActive('/blogs') && 'text-yellow-500'} items-center my-1`}>
             <FaPencilAlt />
             <span>BLOG</span>
           </NavLink>
+        </div>
       </div>
-    </div>
     </CSSTransition>
 
 
@@ -74,10 +74,10 @@ const RightSidebar = () => {
   };
 
 
-  useEffect(()=>{
+  useEffect(() => {
     setMobileMenuOpen(false);
 
-  },[])
+  }, [])
 
 
 
@@ -113,7 +113,7 @@ const RightSidebar = () => {
       <button className="fixed z-50 top-10 right-10 md:hidden flex flex-col items-end justify-start text-3xl rounded-md p-1 bg-gray-700 text-white" onClick={toggleMobileMenu} >
         {isMobileMenuOpen ? <RxCross2 /> : <IoIosMenu />}
       </button>
-      <MobileMenu isOpen={isMobileMenuOpen} onClose={closeMobileMenu} isActive={isActive}/>
+      <MobileMenu isOpen={isMobileMenuOpen} onClose={closeMobileMenu} isActive={isActive} />
     </>
   );
 };
